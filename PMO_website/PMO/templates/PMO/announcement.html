@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; 		charset=utf-8" />
+  
+<title>PMO</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+
+// The height of the content block when it's not expanded
+var adjustheight = 200;
+// The "more" link text
+var moreText = "+  More";
+// The "less" link text
+var lessText = "- Less";
+
+// Sets the .more-block div to the specified height and hides any content that overflows
+$(".more-less .more-block").css('height', adjustheight).css('overflow', 'hidden');
+
+// The section added to the bottom of the "more-less" div
+$(".more-less").append('<p class="continued">[&hellip;]</p><a href="#" class="adjust"></a>');
+
+$("a.adjust").text(moreText);
+
+$(".adjust").toggle(function() {
+		$(this).parents("div:first").find(".more-block").css('height', 'auto').css('overflow', 'visible');
+		// Hide the [...] when expanded
+		$(this).parents("div:first").find("p.continued").css('display', 'none');
+		$(this).text(lessText);
+	}, function() {
+		$(this).parents("div:first").find(".more-block").css('height', adjustheight).css('overflow', 'hidden');
+		$(this).parents("div:first").find("p.continued").css('display', 'block');
+		$(this).text(moreText);
+});
+});
+
+</script>
+
+<style>
+	body{
+		background:#fefefe;
+		font-family:Tahoma, Geneva, sans-serif; 
+	}
+	p{
+		font-family:Tahoma, Geneva, sans-serif; 
+		font-size:14px; 
+		line-height:20px;
+		margin-bottom:20px;
+	}
+	#container{
+		width:200px;
+		margin : auto;
+		
+	}
+	a.adjust{
+		padding:10px;
+		display:block;
+		font-weight:bold;
+		background:#eee;
+		color:#333;
+		border-radius:12px;
+		-webkit-border-radius:12px;
+		-moz-border-radius:12px;
+		width:80px;
+		text-align:center;
+		text-decoration:none;
+	}
+		a.adjust:hover{
+			background:#333;
+			color:#FFF;
+			-webkit-transition: all 400ms; /*safari and chrome */
+			-moz-transition: all 400ms ease; /* firefox */
+			-o-transition: all 400ms ease; /* opera */
+			transition: all 400ms ease;
+		}
+	p.continued{
+		margin-top:0;
+	}
+	img{
+		padding:10px;
+		background:#FFF;
+		border-radius: 12px;
+		-webkit-box-shadow: 0 1px 13px rgba(0,0,0,.25);
+		-moz-box-shadow: 0 1px 13px rgba(0,0,0,.25);
+		box-shadow: 0 1px 13px rgba(0,0,0,.25);
+		width:400px;
+		margin-left:20px;
+	}
+	link
+	{
+		 height : 100px;
+		 
+	}
+</style>
+	  
+</head>
+
+<body>
+ <h1> This is recent announcement </h1>
+  <p>{{d.recent_upload}}</p>
+ 
+ 
+
+    
+ <div id="container">
+  <div class="more-less">
+    
+   <div class="more-block">
+ <h2>Archive</h2>
+ 
+  
+ {% for i in home %} 
+  <li><a href="/PMO/{{ i.id }}/" target="_blank">{{ i.recent_upload }}........{{ i.pub_date }} <i>by</i> {{ i.user_name }}</a></li>
+  
+  {% endfor %} 
+  </div>
+  </div>
+</div>
+<a href="/PMO/login/" target="_blank" >log in</a>   
+
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td, th {
+    border: 1px solid green;
+}
+
+th {
+    background-color: green;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>Group Name</th>
+    <th>submission date</th>
+    <th>document path</th>
+    <th>source  url</th>
+    <th>doc url</th>
+  </tr>
+  {% for p in projects %}
+  <tr>
+    <td>{{p.group_name}}</td>
+    <td>{{p.sub_date}}</td>
+    <td>{{p.docfile.url}}</td>
+    <td>{{p.src_url}}</td>
+    <td>{{p.doc_url}}</td>
+  </tr>
+  {% endfor %}
+</table>
+<h2>Download all documents here </h2>
+{% for i in projects %}
+ <p> <a href="{{ i.docfile.url }}">{{ i.group_name }}</a><p>
+{% endfor %}
+</body>
+</html>
