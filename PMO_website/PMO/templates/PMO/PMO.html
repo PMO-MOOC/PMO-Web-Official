@@ -176,7 +176,7 @@ $(".adjust").toggle(function() {
                     	<a href="#divAbout">About PMO</a>
                     </li>
                     <li>
-                    	<a href="#divDocuments">Documentation</a>
+                    	<a href="{% url 'submit:list'%}">Documentation</a>
                     </li>
                     <li>
                     	<a href="#lastDiv">Learn</a>
@@ -212,9 +212,8 @@ $(".adjust").toggle(function() {
 
 {% for i in home %}
 
-
  
-  <li><p align="left">{{forloop.counter}}<a href="/PMO/{{ i.id }}/" target="_blank"><font size="2">{{ i.pub_date }} <i>by</i> <b>{{ i.user_name }}</b></font></a></p></li>
+  <li><p align="left"><a href="/PMO/{{ i.id }}/" target="_blank"><font size="2">{{ i.pub_date }} <i>by</i> <b>{{ i.user_name }}</b></font></a></p></li>
   
   {% endfor %} 
   </div>
