@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script type="text/javascript" language="javascript">
+window.history.forward(1);
+document.attachEvent("onkeydown", my_onkeydown_handler);
+function my_onkeydown_handler()
+{
+switch (event.keyCode)
+{
+case 116 : // F5;
+event.returnValue = false;
+event.keyCode = 0;
+window.status = "We have disabled F5";
+break;
+}
+}
+</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Expand, contract, animate forms with jQuery wihtout leaving the page" />
+    <meta name="keywords" content="expand, form, css3, jquery, animate, width, height, adapt, unobtrusive javascript"/>
+    
+	<title>PMO-UserHomePage</title>
+
+	<!-- Calling main css file-->
+	<link rel="stylesheet" href="../../static/login/css/main.css">
+   	
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
+    <!-- jQuery lib for mouse wheel horizontal scroll-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="../../static/js/jquery.mousewheel.js"></script>
+    
+     <script type="text/javascript" src="../../static/tinymce/tinymce.min.js"></script>
+     
+     <script type="text/javascript">
+tinymce.init({
+    selector: "#txtarea",
+    theme: "modern",
+	inline: false,
+	forced_root_block: "",
+invalid_elements: "strong, em, span, h1,h2,h3, style",
+    plugins: [
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    toolbar2: "print preview media | forecolor backcolor emoticons",
+    image_advtab: true,
+    templates: [
+        {title: 'Test template 1', content: 'Test 1'},
+        {title: 'Test template 2', content: 'Test 2'}
+    ]
+});
+</script>
+    
+        
+    <!--Enabling horizontal scroll using mouse wheel -->
+    <script>
+	$(document).ready(function() {
+    
+	$('html, body, *').mousewheel(function(e, delta) {
+        this.scrollLeft -= (delta * 100);
+        e.preventDefault();
+    });
+	
+	
+	});
+	</script>
+    
+       
+    <script>
+		function funReset() {
+    	document.getElementById("updateProject").reset();
+	}
+	</script>
+    
+    <script>
+		function funSubmit(){
+		document.getElementById("updateProject").submit();		
+	}
+	
+	</script>
+    
+    	
+</head>
+
+<body>
+
+			<nav>
+                <ul>
+                	<li>
+  							<img src="../../static/images/logo.png">
+                    </li>
+                    <li>
+                    	<a href="#usrHome">Home</a>
+                    </li>
+                    
+                    <li>
+                    	<a href="#updateProject">Upload Document</a>
+                    </li>
+                   
+                    
+					
+                    <li>
+                    	<a href="/PMO/logout/">Sign Out</a>
+                    </li>
+                </ul>
+               
+            </nav>
+            
+<div class="userHome" id="usrHome">
+
+<form action="/PMO/groups/" method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+			<h4 style="color:#0FF">You have beeen logged in as {{user.username}} </h4>
+
+    		<textarea class="txtarea" id="txtarea" name="anc" style="width:100%; height:300px"></textarea>
+            <input type="hidden" id="date1" name="date1">
+            <input type="hidden" id="user" name="user_name" value = "{{user.username}}" >
+     
+ <script type="text/javascript">
+ function myFunction(){
+	 var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1; //Months are zero based
+    var curr_year = d.getFullYear();
+	var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+	
+
+	document.getElementById("date1").value = curr_year + "-" + curr_month + "-" + curr_date + " " +  h + ":" + m + ":" + s;
+		     
+ }
+ </script>
+
+           
+    		<input type="submit" name="Submit" onClick="myFunction()" value="Submit" style="width: 100px; vertical-align:middle; float:none; display: 		table-cell"/>
+            
+           
+    
+		</form>
+
+</div>
+
+<div class="projectUpdate" id="updateProject">
+ <h4 style="color:#00F">{{ submitted }} </h4>
+ 
+ 
+ 	<form action="{% url 'submit:submit' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+ <p>	<label id="labels">Project Name</label> <input type="text" name="projName" autofocus id="inputbox" placeholder="Enter the name of your project" >
+ </p>
+ <input type="hidden" id="date2" name="date2">
+ <script type="text/javascript">
+ function myFunction2(){
+	 var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1; //Months are zero based
+    var curr_year = d.getFullYear();
+	var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+	
+
+	document.getElementById("date2").value = curr_year + "-" + curr_month + "-" + curr_date + " " +  h + ":" + m + ":" + s;
+		     
+ }
+ </script>
+ 
+  <p>  <label id="labels">Summary</label><textarea rows="4" name="summary" placeholder="Enter brief summary of the project" style="width:70%"></textarea>
+  </p>
+  <p><label id="labels">Source url</label><input type="text" name="srcurl" id="inputbox" placeholder="Enter the source url">
+  </p>  
+  <p><label id="labels">Doc url</label><input type="text" name="docurl" id="inputbox" placeholder="Enter the document url">
+  </p>    
+  <p><label id="labels">Upload Apk</label><input type="file" name="file_id" id="inputbox" /></p>
+ 
+  
+  <p><input type="submit" name="btnSubmit" onClick="myFunction2()" value="Submit" id="button" />
+  
+  <input type="reset" name="btnReset" value="Clear" id="button" onclick="funReset()" /></p>  
+  
+   	</form>
+    
+</div> 	    
+  
+  <div class="footer">
+    
+    <img src="../../static/images/mhrd-logo.png" style="position: absolute; margin: 0 auto;
+       top:0px; left: 50px; width: 80px; height: 60px;">
+    				
+    <img src="../../static/images/nmeict-logo.png" style="position: absolute; margin: 0 auto;
+       top:0px; right: 50px; width: 80px; height: 60px;">
+								
+    <div class="col-lg-4" id="social" style="z-index:2">
+		
+        <div id="social-icons">
+       
+        <a href="https://github.com/" target="_blank">
+          <img src="../../static/images/github-white.png" style="position: absolute; top:-20px; left: 560px; width: 48px; height: 48px;" alt="github">
+        </a>
+        <a href="https://plus.google.com/">
+          <img src="../../static/images/googleplus.png" style="position: absolute; margin: 0 auto;
+       top:-20px; left: 620px; width: 48px; height: 48px; " alt="googleplus">
+        </a>
+        <a href="#">
+          <img src="../../static/images/facebook.png" style="position: absolute; margin: 0 auto;
+       top:-20px; left: 680px; width: 48px; height: 48px; " alt="facebook">
+        </a>
+        <a href="#" target="_blank">
+          <img src="../../static/images/youtube.png" style="position: absolute; margin: 0 auto;
+       top:-20px; left: 740px; width: 48px; height: 48px; " alt="youtube">
+        </a>
+        
+		</div>
+    </div>      
+
+  </div>
+</div>
+     
+</body>
+</html>

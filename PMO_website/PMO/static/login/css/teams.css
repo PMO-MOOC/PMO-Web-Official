@@ -1,0 +1,238 @@
+@charset 'UTF-8';
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic,700');
+@import url('font-awesome.min.css');
+
+
+/* CSS Document */
+
+*{
+font-family: arial, sans-serif, verdana;
+}
+
+nav {
+/*background: #ff0052;
+*/
+background:white;
+display: block;
+position: fixed;
+left: 0;
+top: 0;
+border-bottom: 3px solid #F00;
+width: 100%;
+z-index: 10;
+overflow: visible;
+opacity:0.6;
+}
+
+nav ul {
+overflow: visible;
+padding: 0 0 0 130px;
+margin: 0;
+position: relative;
+width: 800px;
+left: 50%;
+margin-left: -420px;
+
+}
+
+ul {
+list-style: none;
+overflow: auto;
+}
+
+nav li {
+float: left;
+overflow: show;
+}
+
+li {
+display: list-item;
+text-align: -webkit-match-parent;
+
+}
+
+nav a {
+font-weight: bold;
+font-family:"Arial Rounded MT Bold", "Bookman Old Style";
+display: inline-block;
+font-size: 16px;
+padding: 10px;
+color: #300;
+margin: 0;
+text-align: center;
+}
+
+nav a:hover{
+color: black;
+background:#dddddd;
+}
+
+a{
+text-decoration:none;
+}
+
+h1, h2, p{
+width:100%;
+}
+
+div{
+position:relative;
+top:10%;
+}
+
+nav li img{
+
+margin-top:0.2em; 
+width:100px;
+position:absolute;
+left:-2em;
+}
+
+body{
+	background: url("../images/dark1.jpg") repeat;
+	text-align:center;
+
+}
+
+img{
+	/* width:100%; */
+	max-width:100%;
+}
+
+
+
+.userHome{
+
+margin-top:3.5em;
+
+}
+
+
+
+.pmoMoocHome {
+	
+	background-color:#FFF;
+	top: 6em;
+	border: 2px solid #03F;
+	border-radius:2px;
+	text-align:center;
+	width:800px;
+	height:450px;
+	padding:10px;
+	margin-left:50px;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	position:absolute;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+	/*white-space:nowrap;*/
+	overflow-y:auto;
+	ovreflow-x:hidden;
+	float:left;
+	
+}
+
+.pmoMoocArchive {
+	
+	background-color:#FFF;
+	top: 6em;
+	border: 2px solid #03F;
+	border-radius:2px;
+	text-align:center;
+	width:390px;
+	height:450px;
+	padding:10px;
+	margin-left:900px;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	position:absolute;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+	white-space:nowrap;
+
+	
+}
+
+#inputbox{
+	
+	text-align:left;
+	height:1.5em;
+	width:70%;
+	margin:auto;
+}
+
+#labels{
+height:2em;
+width: 10em;
+float:left;
+text-align: center;
+vertical-align:middle;
+margin:auto;
+font-size:18px;
+font-family:"Bookman Old Style", "Arial Rounded MT Bold";
+font-style:bold;
+}
+
+#button{
+text-align:center;
+margin:auto;
+font-size:15px;
+float:none;
+vertical-align:middle;
+}
+
+
+.footer {
+background: #282828;
+display: block;
+position: fixed;
+left: 0;
+right:0;
+top:auto;
+bottom:0;
+border-top: 2px solid #F00;
+width: 100%;
+z-index: 10;
+overflow: visible;
+opacity:0.7;
+}
+
+#social-icons {
+    margin-top: 5%;
+    text-align: center;
+}
+
+#social {
+    position: relative;
+    height:40px;
+}
+
+.col-lg-4 {
+    width: 33.3333%;
+}
+
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+	.copyright li
+	{
+		color: #666;
+		text-align:left;
+	}
+	
+		.copyright a
+		{
+			color: inherit;
+
+			-moz-transition: color .2s ease-in-out;
+			-webkit-transition: color .2s ease-in-out;
+			-o-transition: color .2s ease-in-out;
+			-ms-transition: color .2s ease-in-out;
+			transition: color .2s ease-in-out;
+		}
+		
+		.copyright a:hover
+		{
+			color: #777;
+		}
