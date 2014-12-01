@@ -38,19 +38,21 @@ def homepage(request):
 		#return render(request,'PMO/loggedin.html')
 		return render(request,'PMO/user_home.html')
 	#home = User.objects.order_by('id')
-	home = User.objects.order_by('pub_date')[:5]
-	obj_list = []
-	obj_list1 = []
 	
-	for i in home:
-		obj_list.append(i)
+	home = User.objects.order_by('id').reverse()[:10]
+	
+	#obj_list = []
+	#obj_list1 = []
+	
+	#for i in home:
+		#obj_list.append(i)
 		
-	obj_list1 = reversed(obj_list) 
+	#obj_list1 = reversed(obj_list) 
 	
 	d = User.objects.latest('id')	 
 				   
 	#return render(request, 'PMO/announcement.html',{'home':obj_list1, 'd':d})
-	return render(request, 'PMO/PMO.html',{'home':obj_list1, 'd':d})	
+	return render(request, 'PMO/PMO.html',{'home':home, 'd':d})	
 	
 def archive(request,i_id):
 	p = User.objects.get(pk=i_id)
