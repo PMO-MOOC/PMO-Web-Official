@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; 		charset=utf-8" />
+<title>PMO</title>
+	    
+</head>
+
+<body>
+ 
+ <div class="projectUpdate">
+ 
+
+
+ 	<form action="/submit/" method="post" enctype="multipart/form-data">
+ 
+ {% csrf_token %}
+ <p>	<label id="labels">Project Name</label> <input type="text" name="projName" autofocus id="inputbox" placeholder="Enter the name of your project" >
+ </p>
+ <p><input type="date" name="bday"></p>
+  <p>	<label id="labels">Partner 1</label> <input type="text" name="p1" autofocus id="inputbox" placeholder="Enter the name of your project" >
+ </p>
+   <p>	<label id="labels">Partner 2</label> <input type="text" name="p2" autofocus id="inputbox" placeholder="Enter the name of your project" >
+ </p>
+   <p>	<label id="labels">Partner 3</label> <input type="text" name="p3" autofocus id="inputbox" placeholder="Enter the name of your project" >
+ </p>
+ <p>  <label id="labels">Summary</label><textarea rows="4" name="summary" placeholder="Enter brief summary of the project" style="width:70%"></textarea>
+  </p>
+  <p><label id="labels">Source url</label><input type="text" name="srcurl" id="inputbox" placeholder="Enter the source url">
+  </p>  
+  <p><label id="labels">Doc url</label><input type="text" name="docurl" id="inputbox" placeholder="Enter the document url">
+  </p>       
+  <p><label id="labels">Upload Apk</label><input type="file" name="file_id" id="inputbox" /></p>
+  <p><label id="labels">Upload Logo</label><input type="file" name="logo_id" id="inputbox" /></p>
+  <input type="submit" value="send" />
+  
+    </form>
+
+  <a href="{% url 'submit:list' %}" >list all the projects</a>
+    </div>
+    
+</body>
+</html>

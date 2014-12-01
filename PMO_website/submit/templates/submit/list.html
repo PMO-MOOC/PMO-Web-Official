@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td, th {
+    border: 1px solid green;
+}
+
+th {
+    background-color: green;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Download all documents here </h2>
+{% for i in projects %}
+ <p> <a href="{{ i.docfile.url }}">{{ i.group_name }}</a><p>
+{% endfor %}
+</body>
+</html>

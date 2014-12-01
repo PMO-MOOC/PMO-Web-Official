@@ -1,0 +1,56 @@
+<html>
+<head> 
+<script type="text/javascript" language="javascript">
+window.history.forward(1);
+document.attachEvent("onkeydown", my_onkeydown_handler);
+function my_onkeydown_handler()
+{
+switch (event.keyCode)
+{
+case 116 : // F5;
+event.returnValue = false;
+event.keyCode = 0;
+window.status = "We have disabled F5";
+break;
+}
+}
+</script>
+</head>
+<body>
+<p>Congratulation {{user.username}}.. You have been successfully logged in </p>
+<h2>Make a new Announcement here</h2>
+ <div class="projectUpdate">
+ <form action="/PMO/" method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+ <p><textarea rows="4" name="anc" placeholder="Make a announcement here" style="width:70%"></textarea>
+  </p>
+
+  <input type="hidden" id="date1" name="date1">  
+   <input type="hidden" id="user" name="user_name" value = "{{user.username}}" >
+     
+ <script type="text/javascript">
+ function myFunction(){
+	 var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1; //Months are zero based
+    var curr_year = d.getFullYear();
+	var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+	
+
+	document.getElementById("date1").value = curr_year + "-" + curr_month + "-" + curr_date + " " +  h + ":" + m + ":" + s;
+		     
+ }
+ </script>
+
+  
+      										
+  <input type="submit" onclick="myFunction()" value="upload" />
+  
+    </form>
+</div>
+<a href="{% url 'submit:submit' %}" target="_blank">fill form</a>
+<a href ="/PMO/logout/">logout</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<script type="text/javascript" language="javascript">
+window.history.forward(1);
+document.attachEvent("onkeydown", my_onkeydown_handler);
+function my_onkeydown_handler()
+{
+switch (event.keyCode)
+{
+case 116 : // F5;
+event.returnValue = false;
+event.keyCode = 0;
+window.status = "We have disabled F5";
+break;
+}
+}
+</script>
+</head>
+<body>
+ 
+    <div id="login">
+        <form class="form-horizontal" name="LoginForm" action="/PMO/login/" method="post">
+        {% csrf_token %}
+           <p> <label class="control-label" for="username">Username</label>
+            
+                <input type="text" id="username" name="username"  placeholder="Username">
+            </p>
+        <p>
+            <label class="control-label" for="password">Password</label>
+            
+                <input type="password" name="password" id="password" placeholder="Password">
+           </p> 
+    
+                <button type="submit" class="btn">Login</button>
+         
+      
+        </form>
+        
+    </div>
+    
+   
+    
+</body>
+</html>
