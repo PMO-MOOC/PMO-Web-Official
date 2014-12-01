@@ -38,7 +38,7 @@ def homepage(request):
 		#return render(request,'PMO/loggedin.html')
 		return render(request,'PMO/user_home.html')
 	#home = User.objects.order_by('id')
-	home = User.objects.order_by('pub_date')[5:]
+	home = User.objects.order_by('pub_date')[:5]
 	obj_list = []
 	obj_list1 = []
 	
