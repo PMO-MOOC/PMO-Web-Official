@@ -24,16 +24,16 @@ break;
 	<title>PMO-UserHomePage</title>
 
 	<!-- Calling main css file-->
-	<link rel="stylesheet" href="../../static/login/css/main.css">
+	<link rel="stylesheet" href="../../../static/login/css/main.css">
    	
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     
     <!-- jQuery lib for mouse wheel horizontal scroll-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="../../static/js/jquery.mousewheel.js"></script>
+	<script src="../../../static/js/jquery.mousewheel.js"></script>
     
-     <script type="text/javascript" src="../../static/tinymce/tinymce.min.js"></script>
+     <script type="text/javascript" src="../../../static/tinymce/tinymce.min.js"></script>
      
      <script type="text/javascript">
 tinymce.init({
@@ -94,7 +94,7 @@ invalid_elements: "strong, em, span, h1,h2,h3, style",
 			<nav>
                 <ul>
                 	<li>
-  							<img src="../../static/images/logo.png">
+  							<img src="../../../static/images/logo.png">
                     </li>
                     <li>
                     	<a href="#usrHome">Home</a>
@@ -115,7 +115,7 @@ invalid_elements: "strong, em, span, h1,h2,h3, style",
             
 <div class="userHome" id="usrHome">
 
-<form action="/PMO/groups/" method="post" enctype="multipart/form-data">
+<form action="/PMO/login/submit/" method="post" enctype="multipart/form-data">
  {% csrf_token %}
 			<h4 style="color:#0FF">You have beeen logged in as {{user.username}} </h4>
 
@@ -193,7 +193,7 @@ invalid_elements: "strong, em, span, h1,h2,h3, style",
   
   <div class="footer">
     
-    <img src="../../static/images/mhrd-logo.png" style="position: absolute; margin: 0 auto;
+    <img src="../../../static/images/mhrd-logo.png" style="position: absolute; margin: 0 auto;
        top:0px; left: 50px; width: 80px; height: 60px;">
     				
     <img src="../../static/images/nmeict-logo.png" style="position: absolute; margin: 0 auto;
@@ -204,18 +204,18 @@ invalid_elements: "strong, em, span, h1,h2,h3, style",
         <div id="social-icons">
        
         <a href="https://github.com/" target="_blank">
-          <img src="../../static/images/github-white.png" style="position: absolute; top:-20px; left: 560px; width: 48px; height: 48px;" alt="github">
+          <img src="../../../static/images/github-white.png" style="position: absolute; top:-20px; left: 560px; width: 48px; height: 48px;" alt="github">
         </a>
         <a href="https://plus.google.com/">
-          <img src="../../static/images/googleplus.png" style="position: absolute; margin: 0 auto;
+          <img src="../../../static/images/googleplus.png" style="position: absolute; margin: 0 auto;
        top:-20px; left: 620px; width: 48px; height: 48px; " alt="googleplus">
         </a>
         <a href="#">
-          <img src="../../static/images/facebook.png" style="position: absolute; margin: 0 auto;
+          <img src="../../../static/images/facebook.png" style="position: absolute; margin: 0 auto;
        top:-20px; left: 680px; width: 48px; height: 48px; " alt="facebook">
         </a>
         <a href="#" target="_blank">
-          <img src="../../static/images/youtube.png" style="position: absolute; margin: 0 auto;
+          <img src="../../../static/images/youtube.png" style="position: absolute; margin: 0 auto;
        top:-20px; left: 740px; width: 48px; height: 48px; " alt="youtube">
         </a>
         
